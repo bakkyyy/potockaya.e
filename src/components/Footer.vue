@@ -1,16 +1,8 @@
 <template lang="pug">
-    footer(v-bind:style="{background: ftColor}")
+    footer
       .phone
         | Потоцкая Екатерина +7 (999) 999-99-99
       .theme
-        #test.switch
-          input#switch.switch-check(type='checkbox' v-on:click="$emit('chngclr', $event.target.checked)") 
-          label.switch-label(for='switch')
-            | Темная тема
-            span.switch-slider.switch-slider-on
-            span.switch-slider.switch-slider-off
-
-
       .foot
         a(href='https://www.instagram.com/potockaya.e/' target='_blank')
           i.fa.fa-instagram.fa-3x
@@ -19,21 +11,13 @@
           i.fa.fa-vk.fa-3x
           p Вконтакте
 </template>
-<script>
-export default {
-  el: "#test",
-  data: {
-    ftColor: "#D3C0CD"
-  }
-};
-</script>
 <style scoped>
 footer {
   position: absolute;
   height: 70px;
   width: 100%;
   bottom: 0;
-  background-color: #987284;
+  background-color: #f0f0f0;
 }
 
 .phone {
@@ -44,7 +28,7 @@ footer {
 }
 
 .foot {
-  width: 50%;
+  width: 35%;
   position: absolute;
   bottom: 13%;
   right: 0;
@@ -54,7 +38,7 @@ footer {
   padding-left: 5%;
 }
 .fa-instagram {
-  color: #dddd;
+  color: rgba(219, 109, 35, 0.867);
   padding-left: 5%;
 }
 a {
@@ -62,9 +46,13 @@ a {
   text-decoration: none;
   margin-left: 10%;
   color: black;
+  width: 38%;
+  border-radius: 20px;
+  transition: 0.5s;
 }
 a:hover {
   color: #fff;
+  background-color: #484349;
 }
 
 p {
@@ -72,16 +60,5 @@ p {
   font-size: 140%;
   padding-left: 10%;
   padding-top: 10%;
-}
-.theme {
-  position: absolute;
-  left: 40%;
-  bottom: 20%;
-  font-family: "Bellota", cursive;
-  font-size: 140%;
-}
-.switch:hover label,input {
-  color: #fff;
-  cursor: pointer;
 }
 </style>

@@ -3,19 +3,31 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const routes = [
+const routes = [{
+    path: '/read',
+    component: () => import('../views/Read.vue')
+  },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/categories',
+    component: () => import('../views/Categories.vue'),
+    props: true
+  },
+  {
+    path: '/gallery/:myid',
+    name: 'Gallery',
+    component: () => import('../views/Gallery.vue'),
+    props: true
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior(to, savedPosition) {
+    return {
+      x: 0,
+      y: 290
+    }
+  }
 })
 
 export default router
