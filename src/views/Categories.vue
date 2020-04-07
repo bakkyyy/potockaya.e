@@ -29,15 +29,13 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
 .categories {
-  width: 27%;
+  width: 27vw;
   background-color: #ffff;
   display: inline-block;
-  margin: 3%;
+  margin: 2.9vw;
   height: 50vh;
   color: black;
-
-  font-size: 130%;
-
+  font-size: 1.3vw;
   transition: 0.6s;
 }
 .link {
@@ -59,9 +57,9 @@ export default {
 }
 
 .title {
-  width: 80%;
   margin-left: 5%;
   margin-top: -3%;
+  width: 80%;
   font-family: "Bellota", cursive;
   font-weight: 900;
 }

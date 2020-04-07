@@ -52,21 +52,20 @@
 <style scoped>
 * {
   font-family: "Bellota", cursive;
-  font-size: 110%;
+  font-size: 1.3vw;
   z-index: 99;
 }
 b {
-  font-size: 130%;
+  font-size: 2vw;
   color: rgb(255, 230, 0);
 }
 .panel {
   position: fixed;
-  width: 90%;
+  width: 90vw;
   height: 90vh;
-  background-color: #484349;
-  left: 5%;
-  bottom: 5%;
-  opacity: 95%;
+  background-color: rgba(72, 67, 73, 0.99);
+  left: 5vw;
+  bottom: 5vh;
   border: 3px solid black;
   border-radius: 20px;
 }

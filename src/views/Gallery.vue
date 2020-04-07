@@ -54,18 +54,19 @@ export default {
 
 .gallery {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 91vw;
+  height: 80%;
   background-color: #f0f0f0;
   overflow: auto;
+  top: 10%;
 }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  grid-gap: 1rem;
-  max-width: 90%;
-  padding: 0 5rem;
+  grid-column-gap: 1rem;
+  max-width: 90vw;
+  padding: 0 4.5%;
   padding-top: 5%;
 }
 .gallery-panel img {
@@ -75,8 +76,7 @@ export default {
   border-radius: 0.75rem;
 }
 img {
-  width: auto;
-  height: 80%;
+  height: 90vh;
 }
 
 img:active {
@@ -92,10 +92,9 @@ img:active {
   height: 90vh;
   width: auto;
   grid-column-start: 2;
-  border: 5px solid #484349;
 }
 img:hover {
   transform: scale(1.05);
-  cursor:zoom-in;
+  cursor: zoom-in;
 }
 </style>
