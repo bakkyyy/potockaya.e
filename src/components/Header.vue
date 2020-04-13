@@ -4,18 +4,15 @@
       .head Катя, которая фотографирует
       </router-link>
       .nav
+        .feedback.button
+          router-link(to="/feedback" class ='link')
+            span Отзывы
         .registr.button(:class="checkUser?'buttonhide': 'registr.button'")
           router-link(to="/registration" class ='link') 
             span Зарегистрироваться
         .login.button(:class="checkUser?'buttonhide': 'login.button'")
           router-link(to="/login" class ='link')
             span Войти
-        .feedback.button(:class="checkUser?'feedback.button': 'buttonhide'")
-          router-link(to="/feedback" class ='link')
-            span Отзывы
-        .read.button
-          router-link(to="/read" class ='link')
-            span Обязательно к прочтению
         .logout.button(:class="checkUser?'logout.button': 'buttonhide'")
           .link(@click='logout')
             span Выйти
@@ -59,26 +56,20 @@ header {
   font-size: 50px;
   font-family: "Marck Script", cursive;
 }
-.read {
-  width: 45%;
-  text-align: center;
-  position: relative;
-  top: 30%;
-}
 .registr {
-  width: 35%;
+  width: 50%;
   text-align: center;
   position: relative;
   top: 30%;
 }
 .login {
-  width: 12%;
+  width: 18%;
   text-align: center;
   position: relative;
   top: 30%;
 }
 .logout {
-  width: 12%;
+  width: 18%;
   text-align: center;
   position: relative;
   top: 30%;
@@ -90,7 +81,7 @@ header {
   top: 30%;
 }
 .nav {
-  width: 40%;
+  width: 30%;
   text-align: center;
   position: relative;
   top: 30%;
@@ -98,6 +89,7 @@ header {
   float: right;
   display: flex;
   justify-content: space-between;
+
 }
 .link {
   text-decoration: none;

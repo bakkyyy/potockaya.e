@@ -4,26 +4,6 @@
 			.auth_form
 				span.ui-title-2 Регистрация
 				form(@submit.prevent="onSubmit") 
-					.form-item(:class="{ errorInput: $v.firstname.$error }")
-						.error(v-if="!$v.firstname.required") Введите Имя
-						.error(v-else-if="!$v.firstname.alpha") Имя должно содержать только символы русского алфавита
-						input(
-							type="text"
-							placeholder=" Имя"
-							v-model="firstname"
-							:class="{error: $v.firstname.$error}"
-							@blur="$v.firstname.$touch()"
-						)
-					.form-item(:class="{ errorInput: $v.secondname.$error }")
-						.error(v-if="!$v.secondname.required") Введите Фамилию
-						.error(v-else-if="!$v.secondname.alpha") Фамилия должна содержать только символы русского алфавита
-						input(
-							type="text"
-							placeholder=" Фамилия"
-							v-model="secondname"
-							:class="{error: $v.secondname.$error}"
-							@blur="$v.secondname.$touch()"
-						)
 					.form-item(:class="{ errorInput: $v.email.$error }")
 						.error(v-if="!$v.email.required") Введите email адрес
 						.error(v-if="!$v.email.email") Некорректный Email
@@ -85,8 +65,6 @@ import { helpers } from "vuelidate/lib/validators";
 export default {
   data() {
     return {
-      firstname: "",
-      secondname: "",
       email: "",
       password: "",
       repeatPassword: "",
@@ -99,14 +77,6 @@ export default {
     }
   },
   validations: {
-    firstname: {
-      required,
-      alpha: val => /^[а-яё]*$/i.test(val)
-    },
-    secondname: {
-      required,
-      alpha: val => /^[а-яё]*$/i.test(val)
-    },
     email: {
       required,
       email
@@ -127,8 +97,6 @@ export default {
       } else {
         console.log("submit!");
         const user = {
-          firstname: this.firstname,
-          secondname: this.secondname,
           email: this.email,
           password: this.password
         };
@@ -142,11 +110,6 @@ export default {
           .catch(err => {
             this.submitStatus = err.message;
           });
-        // console.log(user);
-        // this.submitStatus = "PENDING";
-        // setTimeout(() => {
-        //   this.submitStatus = "OK";
-        // }, 500);
       }
     }
   }

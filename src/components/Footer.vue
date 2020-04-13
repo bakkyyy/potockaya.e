@@ -3,6 +3,8 @@
       .phone
         | Потоцкая Екатерина +7 (999) 999-99-99
       .theme
+        router-link(to="/read" class ='link')
+          span Информация для заказа
       .foot
         a(href='https://www.instagram.com/potockaya.e/' target='_blank')
           i.fa.fa-instagram.fa-3x
@@ -61,5 +63,14 @@ p {
   padding-left: 1vw;
   position: relative;
   margin-top: 0.5vw;
+}
+.theme {
+  width: 20vw;
+  text-align: center;
+  position: absolute;
+  top: 25%;
+  left: 40%;
+  font-family: "Bellota", cursive;
+  font-size: 1.1vw;
 }
 </style>

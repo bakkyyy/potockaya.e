@@ -13,20 +13,13 @@ export default {
 		async registerUser({
 			commit
 		}, {
-			firstname,
-			secondname,
 			email,
 			password
 		}) {
 			commit('clearError')
 			commit('setLoading', true)
 			try {
-				//logic
 				const user = await firebase.auth().createUserWithEmailAndPassword(email, password)
-				user.user.updateProfile({
-					displayName: firstname + ' ' + secondname
-				})
-				console.log(user)
 				commit('setUser', new User(user.user.uid))
 				commit('setLoading', false)
 			} catch (error) {
@@ -38,8 +31,6 @@ export default {
 		async loginUser({
 			commit
 		}, {
-			firstname,
-			secondname,
 			email,
 			password
 		}) {
@@ -48,9 +39,6 @@ export default {
 			try {
 				//logic
 				const user = await firebase.auth().signInWithEmailAndPassword(email, password)
-				user.user.updateProfile({
-					displayName: firstname + ' ' + secondname
-				})
 				commit('setUser', new User(user.user.uid))
 				commit('setLoading', false)
 			} catch (error) {
