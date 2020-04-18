@@ -2,7 +2,9 @@ import firebase from "firebase/app"
 import User from './user_help'
 export default {
 	state: {
-		user: null
+		user: {
+			default: null
+		}
 	},
 	mutations: {
 		setUser(state, payload) {
@@ -66,6 +68,13 @@ export default {
 		},
 		checkUser(state) {
 			return state.user !== null
+		},
+		mainUser(state) {
+			if (state.user === null)
+				return false
+			if (state.user.id === "Nep3ItJUuhecPAM56oIMcsA4ZYj1")
+				return true
+			return false
 		}
 	}
 }

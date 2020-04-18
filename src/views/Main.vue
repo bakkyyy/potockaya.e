@@ -87,13 +87,13 @@ export default {
 
 <style scoped>
 .main {
-  height: 250vh;
+  height: 125vw;
   width: 100%;
 }
 
 .title {
   font-family: "Pacifico", cursive;
-  font-size: 250%;
+  font-size: 2.3vw;
   position: relative;
   text-align: center;
   width: 100%;

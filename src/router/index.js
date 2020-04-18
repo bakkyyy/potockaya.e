@@ -7,6 +7,7 @@ import Login from '../components/auth/Login'
 import Registration from '../components/auth/Registration'
 import Main from '../views/Main.vue'
 import Feedback from '../views/Feedback'
+import AddImage from '../views/AddImage'
 
 Vue.use(VueRouter)
 
@@ -35,6 +36,13 @@ const routes = [{
     path: '/feedback',
     components: {
       default: Feedback
+    },
+    props: true
+  },
+  {
+    path: '/addimage',
+    components: {
+      default: AddImage
     },
     props: true
   },

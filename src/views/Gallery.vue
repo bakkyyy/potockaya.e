@@ -1,47 +1,40 @@
 <template lang="pug">
   .gallery
     router-link.back(to='/')  Назад
-    .gallery-panel(v-for="(photo,index) in filtid" :key="photo.id")
-      router-link(:to='`/photo/${photo.id}`')
-      img(:src='thumbUrl(photo.filename)')
+    .gallery-panel(v-for="(image,index) in filtid.reverse()" :key="image.id")
+      router-link(:to='`/image/${image.id}`')
+      img(:src="image.imageUrl")
 </template>
 
 <script>
-import photos from "@/photos.json";
 export default {
   name: "Gallery",
   data() {
     return {
-      photos,
-      isScope: true
+      isScope: true,
     };
   },
+  props: ["myid"],
   computed: {
     filtid() {
-      return this.photos.filter(
-        element => element.category === parseInt(this.myid)
-      );
-    }
+      return this.images.filter((element) => element.category === this.myid);
+    },
+    images() {
+      return this.$store.getters.loadedImages;
+    },
   },
-  props: ["myid"],
-  methods: {
-    thumbUrl(filename) {
-      return require(`../assets/photos/${filename}`);
-    }
-  }
 };
 </script>
-
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
 .back {
   position: absolute;
   border-radius: 20px;
-  width: 10%;
+  width: 10vw;
   text-align: center;
-  margin-top: 1.5%;
-  margin-left: 2%;
-  font-size: 200%;
+  margin-top: 1.5vw;
+  margin-left: 2vw;
+  font-size: 1.7vw;
   font-family: "Bellota", cursive;
   text-decoration: none;
   color: black;
@@ -54,11 +47,11 @@ export default {
 
 .gallery {
   position: absolute;
-  width: 91vw;
-  height: 80%;
+  width: 100%;
+  height: 73vh;
   background-color: #f0f0f0;
   overflow: auto;
-  top: 10%;
+  top: 10vh;
 }
 
 .gallery {
@@ -76,7 +69,7 @@ export default {
   border-radius: 0.75rem;
 }
 img {
-  height: 90vh;
+  height: 45vw;
 }
 
 img:active {

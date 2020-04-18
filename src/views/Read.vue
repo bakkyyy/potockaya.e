@@ -45,8 +45,9 @@
               br
               br
               |- Если есть возможность, предоставить примеры работ, которые вы бы хотели получить по итогу
-      .back
-        <router-link to="/" class="bck">Понятно</router-link>
+      
+      router-link(to="/" class="bck") Понятно
+      
 </template>
 
 <style scoped>
@@ -62,19 +63,19 @@ b {
 .panel {
   position: fixed;
   width: 90vw;
-  height: 90vh;
+  height: 45vw;
   background-color: rgba(72, 67, 73, 0.99);
   left: 5vw;
-  bottom: 5vh;
+  bottom: 2.5vw;
   border: 3px solid black;
   border-radius: 20px;
 }
 .info {
   position: absolute;
   width: 90%;
-  height: 80vh;
-  top: 5%;
-  left: 5%;
+  height: 40vw;
+  top: 2.5vw;
+  left: 5vw;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -82,30 +83,28 @@ b {
 .col1 {
   width: 50%;
   margin-right: 3%;
-  font-size: 90%;
+  font-size: 1.4vw;
 }
 .col2 {
   width: 50%;
   margin-left: 3%;
 }
-.back {
+
+.bck {
+  color: white;
+  text-decoration: none;
   position: absolute;
-  bottom: 5%;
-  left: 45%;
-  width: 10%;
+  bottom: 2.5vw;
+  left: 40vw;
+  width: 10vw;
   text-align: center;
   background-color: #222;
   border-radius: 20px;
   border: 1px solid white;
 }
-.bck {
-  color: white;
-  text-decoration: none;
-}
-.back:hover {
-  background-color: #fff;
-}
-.back:hover .bck {
-  color: #000;
+.bck:hover {
+  background-color: white;
+  color: #222;
+  cursor: pointer;
 }
 </style>

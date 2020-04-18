@@ -16,7 +16,7 @@
 <style scoped>
 footer {
   position: fixed;
-  height: 70px;
+  height: 4vw;
   width: 100%;
   bottom: 0;
   background-color: #f0f0f0;
@@ -25,14 +25,14 @@ footer {
 .phone {
   font-family: "Bellota", cursive;
   font-size: 1vw;
-  padding-top: 3vh;
+  padding-top: 1.5vw;
   padding-left: 3vw;
 }
 
 .foot {
   width: 35vw;
   position: absolute;
-  bottom: 1vh;
+  bottom: 0.5vw;
   right: 0;
 }
 .fa-vk {

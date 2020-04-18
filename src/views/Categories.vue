@@ -15,13 +15,13 @@ export default {
   name: "Categories",
   props: ["ctlg"],
   components: {
-    Gallery
+    Gallery,
   },
   computed: {
     id() {
       return this.ctlg.id;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -29,17 +29,18 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
 .categories {
+  position: relative;
   width: 27vw;
   background-color: #ffff;
   display: inline-block;
   margin: 2.9vw;
-  height: 50vh;
+  height: 25vw;
   color: black;
   font-size: 1.3vw;
   transition: 0.6s;
 }
 .link {
-  height: 50vh;
+  height: 100%;
 }
 
 .categories:hover {

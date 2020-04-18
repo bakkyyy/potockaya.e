@@ -1,12 +1,15 @@
 <template lang="pug">
     header
       <router-link to="/" class ='link'>
-      .head Катя, которая фотографирует
+      .head(@click="iduser") Катя, которая фотографирует
       </router-link>
       .nav
         .feedback.button
           router-link(to="/feedback" class ='link')
             span Отзывы
+        .addimage.button(:class="!mainUser?'buttonhide': 'addimage.button'")
+          router-link(to="/addimage" class ='link')
+            span Добавить фото
         .registr.button(:class="checkUser?'buttonhide': 'registr.button'")
           router-link(to="/registration" class ='link') 
             span Зарегистрироваться
@@ -30,11 +33,18 @@ export default {
     logout() {
       this.$store.dispatch("logoutUser");
       this.$router.push("/");
+    },
+    iduser() {
+      console.log(this.mainUser);
     }
   },
+
   computed: {
     checkUser() {
       return this.$store.getters.checkUser;
+    },
+    mainUser() {
+      return this.$store.getters.mainUser;
     }
   }
 };
@@ -43,7 +53,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
 header {
   width: 100%;
-  height: 70px;
+  height: 4vw;
   position: fixed;
   z-index: 9;
   opacity: 0.95;
@@ -53,7 +63,7 @@ header {
 .head {
   position: absolute;
   left: 3%;
-  font-size: 50px;
+  font-size: 3vw;
   font-family: "Marck Script", cursive;
 }
 .registr {
@@ -80,6 +90,11 @@ header {
   position: relative;
   top: 30%;
 }
+.addimage {
+  width: 40%;
+  text-align: center;
+  position: relative;
+}
 .nav {
   width: 30%;
   text-align: center;
@@ -89,7 +104,6 @@ header {
   float: right;
   display: flex;
   justify-content: space-between;
-
 }
 .link {
   text-decoration: none;
@@ -97,7 +111,7 @@ header {
 }
 span {
   font-family: "Bellota", cursive;
-  font-size: 125%;
+  font-size: 1.1vw;
   opacity: 1;
 }
 .button:hover {

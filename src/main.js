@@ -35,5 +35,6 @@ new Vue({
       }
       this.$store.dispatch('loadFeedbacks')
     })
+    this.$store.dispatch('loadImages')
   }
 }).$mount("#app");

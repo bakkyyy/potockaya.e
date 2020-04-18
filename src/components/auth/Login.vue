@@ -67,15 +67,15 @@ export default {
       minLength: minLength(8)
     }
   },
-  computed:{
+  computed: {
     loading() {
       return this.$store.getters.loading;
     }
   },
   methods: {
     onSubmit() {
-      this.$v.$touch()
-      
+      this.$v.$touch();
+
       if (this.$v.$invalid) {
         this.submitStatus = "ERROR";
       } else {
@@ -131,11 +131,11 @@ form {
 }
 input {
   width: 90%;
-  height: 3.5vh;
+  height: 2.5vw;
   margin-bottom: 10%;
   border-radius: 10px;
   font-family: "Bellota", cursive;
-  font-size: 2vh;
+  font-size: 1vw;
   opacity: 1;
 }
 input.error {
@@ -143,12 +143,12 @@ input.error {
 }
 span {
   font-family: "Bellota", cursive;
-  font-size: 3vh;
+  font-size: 1.5vw;
   opacity: 1;
 }
 .error {
   font-family: "Bellota", cursive;
-  font-size: 2vh;
+  font-size: 1.2vw;
   opacity: 1;
 }
 .link {
@@ -159,7 +159,7 @@ span {
   text-align: center;
 }
 .ui-title-2 {
-  font-size: 5vh;
+  font-size: 3vw;
   position: relative;
   left: 40%;
   font-weight: 900;
@@ -180,7 +180,7 @@ span {
 .button-list {
   position: absolute;
   left: 5vw;
-  bottom: 3vh;
+  bottom: 1.5vw;
   width: 30%;
   display: flex;
   justify-content: space-between;
@@ -200,12 +200,12 @@ button:hover {
 .button-info {
   width: 30vw;
   position: absolute;
-  bottom: 14vh;
+  bottom: 7vw;
   font-weight: 700;
   left: 3.5vw;
   text-align: center;
 }
 .status {
-  font-size: 2.2vh;
+  font-size: 1.2vw;
 }
 </style>

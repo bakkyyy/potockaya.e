@@ -9,15 +9,19 @@
       router-link(to="/" class="back") 
         span Назад
       .feedback-list
-        .feedback-item(v-for="feedback in feedbacksFilter.slice().reverse()" :key="feedback.data")
+        .feedback-item(v-for="feedback in paginatedData" :key="feedback.data")
           .uname {{feedback.feedbackname}}
           .user-text-border
-            .user-text {{feedback.text}}
+            .user-text {{feedback.text}} 
           .triangle
           .user-mack(v-for="star in 5")
             img(v-if="feedback.mack < star" src="@/assets/rating_empty.png")
             img(v-if="feedback.mack >= star" src="@/assets/rating_fill.png")
           .user-data {{feedback.data}}
+    .button-next
+      .pagenumber {{this.pageNumber + 1}} / {{this.pageCount}}
+      button.next(@click="nextPage" :disabled="pageNumber >= pageCount-1") Следующая страница
+      button.next(@click="prevPage" :disabled="pageNumber===0") Предыдущая страница
     .feedback-write(:class="feedbackClick? 'feedback-write-off':'feedback-write'")
       form(@submit.prevent="onSubmit")
         .title-name Ваши Имя и Фамилия
@@ -53,23 +57,32 @@ export default {
       feedbackname: "",
       mack: "",
       data: "",
-      feedbackClick: true
+      feedbackClick: true,
+      pageNumber: 0,
     };
   },
+  props: {
+    size: {
+      type: Number,
+      required: false,
+      default: 3,
+    },
+  },
+
   validations: {
     feedbackText: {
-      required
+      required,
     },
     mack: {
-      required
+      required,
     },
     feedbackname: {
       required,
-      alpha: val =>
+      alpha: (val) =>
         /(^[А-Я]{1}[а-я]{1,14} [А-Я]{1}[а-я]{1,14}$)|(^[А-Я]{1}[а-я]{1,14} [А-Я]{1}[а-я]{1,14}$)/i.test(
           val
-        )
-    }
+        ),
+    },
   },
   computed: {
     feedbacksFilter() {
@@ -77,14 +90,26 @@ export default {
     },
     checkUser() {
       return this.$store.getters.checkUser;
-    }
+    },
+    pageCount() {
+      let l = this.feedbacksFilter.length,
+        s = this.size;
+      return Math.ceil(l / s);
+    },
+    paginatedData() {
+      const start = this.pageNumber * this.size,
+        end = start + this.size;
+      return this.feedbacksFilter
+        .slice()
+        .reverse()
+        .slice(start, end);
+    },
   },
   created() {
     setInterval(this.getNow, 1000);
   },
   methods: {
     fdbckClick() {
-      this.data = this.getNow();
       if (this.feedbackClick === false) {
         this.feedbackClick = true;
       } else this.feedbackClick = false;
@@ -104,7 +129,7 @@ export default {
           mack: this.mack,
           completed: false,
           editing: false,
-          data: this.data
+          data: this.data,
         };
         this.$store
           .dispatch("newFeedback", feedback)
@@ -116,7 +141,7 @@ export default {
 
             this.$v.$reset();
           })
-          .catch(err => {
+          .catch((err) => {
             this.submitStatus = err.message;
           });
         setTimeout(() => {
@@ -137,8 +162,14 @@ export default {
         today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       const dateTime = time + " " + " " + " " + date;
       this.data = dateTime;
-    }
-  }
+    },
+    nextPage() {
+      this.pageNumber++;
+    },
+    prevPage() {
+      this.pageNumber--;
+    },
+  },
 };
 </script>
 
@@ -148,18 +179,19 @@ export default {
 }
 .container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: white;
 }
 .feedback-panel {
   background-color: #f0f0f0;
   position: relative;
   top: 15%;
+  width: 100%;
 }
 
 .feedback-list {
   width: 80vw;
-  height: 60vh;
+  height: 60%;
   position: relative;
   overflow: scroll;
 }
@@ -169,12 +201,12 @@ export default {
   border: 3px dashed #484349;
   background-color: #ffff;
   border-radius: 8px;
-  margin-top: 3vh;
+  margin-top: 1.5vw;
   margin-left: 5%;
 }
 .title {
   font-family: "Pacifico", cursive;
-  font-size: 250%;
+  font-size: 2.5vw;
   position: relative;
   text-align: center;
   width: 100%;
@@ -182,11 +214,13 @@ export default {
 }
 .back {
   border-radius: 20px;
-  width: 10%;
+  position: relative;
+  padding-left: 1%;
+  padding-right: 1%;
   text-align: center;
   margin-top: 1.5%;
   margin-left: 2%;
-  font-size: 200%;
+  font-size: 2vw;
   text-decoration: none;
   color: black;
 }
@@ -200,9 +234,9 @@ export default {
   position: absolute;
   border: 1px solid black;
   width: 20%;
-  height: 48vh;
+  height: 48%;
   float: right;
-  top: 25vh;
+  top: 12vw;
   right: 3vw;
   background-color: white;
   border-radius: 5px;
@@ -215,7 +249,7 @@ form {
 button {
   background-color: #ffff;
   border: none;
-  font-size: 2.1vh;
+  font-size: 1.1vw;
   display: block;
 }
 .button-write {
@@ -223,7 +257,7 @@ button {
   border-radius: 20px;
   position: relative;
   text-align: center;
-  top: 12%;
+  top: 5%;
   margin: 0 auto;
   width: 45%;
   text-decoration: none;
@@ -241,7 +275,7 @@ button {
   width: 80%;
   height: 60%;
   margin-left: 10%;
-  top: 9%;
+  top: 1%;
   resize: none;
   position: relative;
   text-decoration: none;
@@ -251,11 +285,13 @@ button {
 .title-text {
   text-align: center;
   position: relative;
-  top: 7%;
+  top: 2%;
+  height: 9%;
 }
 .title-name {
   text-align: center;
   position: relative;
+  height: 11%;
   top: 3%;
 }
 input.name {
@@ -263,7 +299,6 @@ input.name {
   width: 80%;
   height: 10%;
   margin-left: 10%;
-  top: 5%;
   text-decoration: none;
   color: black;
   border-radius: 5px;
@@ -274,16 +309,16 @@ input.name {
   font-size: 1.5vw;
   text-align: center;
   position: absolute;
-  right: 6.5%;
-  top: 19%;
+  right: 6.5vw;
+  top: 8.5vw;
 }
 .please-registration {
   width: 20vw;
   font-size: 1.1vw;
   text-align: center;
   position: absolute;
-  right: 6.5%;
-  top: 17%;
+  right: 6.5vw;
+  top: 8vw;
 }
 .feedback-button:hover {
   color: white;
@@ -292,7 +327,8 @@ input.name {
 }
 .rating_block {
   position: relative;
-  top: 9%;
+  top: 1%;
+  height: 10%;
   margin: 0 auto;
   width: 125px;
   height: 25px;
@@ -322,20 +358,13 @@ input.name {
   border: 1px solid red;
 }
 
-.errorrating {
-  color: red;
-  text-align: center;
-  border: 1px solid black;
-  font-size: 1.5vh;
-  position: relative;
-}
 .uname {
-  width: 25%;
-  font-size: 3vh;
+  width: 13vw;
+  font-size: 1.5vw;
   position: absolute;
   height: 100%;
   text-align: center;
-  margin-top: 1%;
+  margin-top: 1vw;
 }
 .user-text {
   background-color: #f0f0f0;
@@ -366,7 +395,7 @@ input.name {
   height: 0px;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  border-right: 1.3vw solid #f0f0f0;;
+  border-right: 1.3vw solid #f0f0f0;
 }
 .user-data {
   width: 10vw;
@@ -380,5 +409,22 @@ input.name {
   width: 3vw;
   right: 8vw;
   transform: rotate(310deg);
+}
+.button-next {
+  width: 10vw;
+  height: 2vw;
+  position: absolute;
+  top: 13vw;
+  left: 69vw;
+  text-align: center;
+}
+.next {
+  border-radius: 20px;
+  margin-top: 5%;
+}
+.next:hover {
+  background-color: #484349;
+  color: white;
+  cursor: pointer;
 }
 </style>

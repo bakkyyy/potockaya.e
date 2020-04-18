@@ -147,11 +147,11 @@ form {
 }
 input {
   width: 90%;
-  height: 3.5vh;
+  height: 2.5vw;
   margin-bottom: 5%;
   border-radius: 10px;
   font-family: "Bellota", cursive;
-  font-size: 2vh;
+  font-size: 1vw;
   opacity: 1;
 }
 input.error {
@@ -159,23 +159,23 @@ input.error {
 }
 span {
   font-family: "Bellota", cursive;
-  font-size: 3vh;
+  font-size: 1.5vw;
   opacity: 1;
 }
 .error {
   font-family: "Bellota", cursive;
-  font-size: 2vh;
+  font-size: 1vw;
   opacity: 1;
 }
 .link {
   text-decoration: none;
   color: black;
   border-radius: 20px;
-  width: 8vw;
+  width: 30%;
   text-align: center;
 }
 .ui-title-2 {
-  font-size: 5vh;
+  font-size: 2.5vw;
   position: relative;
   left: 30%;
   font-weight: 900;
@@ -196,7 +196,7 @@ span {
 .button-list {
   position: absolute;
   left: 5vw;
-  bottom: 3vh;
+  bottom: 1.5vw;
   width: 30%;
   display: flex;
   justify-content: space-between;
@@ -206,7 +206,9 @@ button {
   padding: 0;
   border: none;
   border-radius: 20px;
-  width: 12vw;
+}
+.button.button-primory {
+  width: 60%;
 }
 button:hover {
   color: white;
@@ -216,12 +218,12 @@ button:hover {
 .button-info {
   width: 30vw;
   position: absolute;
-  bottom: 14vh;
+  bottom: 7vw;
   font-weight: 700;
   left: 3.5vw;
   text-align: center;
 }
 .status {
-  font-size: 2.2vh;
+  font-size: 1.1vw;
 }
 </style>
