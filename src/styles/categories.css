@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+
+.categories-ctg {
+	position: relative;
+	width: 27vw;
+	background-color: #ffff;
+	display: inline-block;
+	margin: 2.9vw;
+	height: 25vw;
+	color: black;
+	font-size: 1.3vw;
+	transition: 0.6s;
+}
+
+.link-ctg {
+	height: 100%;
+}
+
+.categories-ctg:hover {
+	transform: scale(1.2);
+	cursor: pointer;
+	background-color: #484349;
+}
+
+.categories-ctg:hover .ttl-ctg {
+	color: white;
+}
+
+.content-ctg {
+	width: 90%;
+	height: 70%;
+	margin: 5%;
+}
+
+.title-ctg {
+	margin-left: 5%;
+	margin-top: -3%;
+	width: 80%;
+	font-family: "Bellota", cursive;
+	font-weight: 900;
+}
+
+.price-ctg {
+	margin-right: 5%;
+	margin-top: 3%;
+	float: right;
+}
+
+.ttl-ctg {
+	text-decoration: none;
+	color: black;
+	transition: 1s;
+}
+
+.img-ctg {
+	object-fit: fill;
+	height: 100%;
+	width: 100%;
+}

@@ -53,7 +53,6 @@ export default {
 			commit
 		}, payload) {
 			commit('setUser', new User(payload.uid))
-			console.log(payload.uid)
 		},
 		logoutUser({
 			commit

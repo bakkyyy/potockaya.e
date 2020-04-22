@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
+
+* {
+	text-decoration: none;
+}
+
+header {
+	width: 100%;
+	height: 4vw;
+	position: fixed;
+	z-index: 9;
+	opacity: 0.95;
+	background-color: #f0f0f0;
+}
+
+.head-logo {
+	position: absolute;
+	left: 3%;
+	font-size: 3vw;
+	font-family: "Marck Script", cursive;
+	color: black;
+}
+
+.registr-header {
+	width: 50%;
+	text-align: center;
+	position: relative;
+	top: 30%;
+}
+
+.login-header {
+	width: 18%;
+	text-align: center;
+	position: relative;
+	top: 30%;
+}
+
+.logout-header {
+	width: 18%;
+	text-align: center;
+	position: relative;
+	top: 30%;
+}
+
+.feedback-header {
+	width: 27%;
+	text-align: center;
+	position: relative;
+	top: 30%;
+}
+
+.addimage-header {
+	width: 40%;
+	text-align: center;
+	position: relative;
+}
+
+.nav-header {
+	width: 30%;
+	text-align: center;
+	position: relative;
+	top: 30%;
+	left: -1vw;
+	float: right;
+	display: flex;
+	justify-content: space-between;
+}
+
+.router-link-header {
+	text-decoration: none;
+	color: black;
+}
+
+.sheader {
+	font-family: "Bellota", cursive;
+	font-size: 1.1vw;
+	opacity: 1;
+}
+
+.button-header:hover {
+	cursor: pointer;
+	background-color: #484349;
+	transition: 0.5s;
+	color: #f0f0f0;
+}
+
+.button-header:hover .router-link-header {
+	color: #f0f0f0;
+}
+
+.button-header {
+	border-radius: 20px;
+}
+
+.buttonhide {
+	display: none;
+}

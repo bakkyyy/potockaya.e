@@ -1,0 +1,59 @@
+.b-read {
+	font-size: 2vw;
+	color: rgb(255, 230, 0);
+}
+
+.panel-read {
+	font-family: "Bellota", cursive;
+	font-size: 1.3vw;
+	z-index: 99;
+	position: fixed;
+	width: 90vw;
+	height: 45vw;
+	background-color: rgba(72, 67, 73, 0.99);
+	left: 5vw;
+	bottom: 2.5vw;
+	border: 3px solid black;
+	border-radius: 20px;
+}
+
+.info-read {
+	position: absolute;
+	width: 90%;
+	height: 40vw;
+	top: 2.5vw;
+	left: 5vw;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+}
+
+.col1-read {
+	width: 50%;
+	margin-right: 3%;
+	font-size: 1.4vw;
+}
+
+.col2-read {
+	width: 50%;
+	margin-left: 3%;
+}
+
+.bck-read {
+	color: white;
+	text-decoration: none;
+	position: absolute;
+	bottom: 2.5vw;
+	left: 40vw;
+	width: 10vw;
+	text-align: center;
+	background-color: #222;
+	border-radius: 20px;
+	border: 1px solid white;
+}
+
+.bck-read:hover {
+	background-color: white;
+	color: #222;
+	cursor: pointer;
+}

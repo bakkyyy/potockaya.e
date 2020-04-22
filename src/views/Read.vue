@@ -1,8 +1,8 @@
 <template lang="pug">
-    .panel
-      .info
-        .col1 
-              b Памятка для фотосессии 
+    .panel-read
+      .info-read
+        .col1-read
+              b.b-read Памятка для фотосессии 
               br
               |- Предоплата 200-500₽ (на выбор)
               br
@@ -31,8 +31,8 @@
               |- Фотографии скидываю на Яндекс.Диск
               br
               |- Фотографии хранятся пол года
-        .col2 
-              b ОБЯЗАТЕЛЬНО
+        .col2-read 
+              b.b-read ОБЯЗАТЕЛЬНО
               br
               br
               |- Внести предоплату в течении двух суток (если договорились без неё, то не нужно)
@@ -46,65 +46,10 @@
               br
               |- Если есть возможность, предоставить примеры работ, которые вы бы хотели получить по итогу
       
-      router-link(to="/" class="bck") Понятно
+      .router-link(@click="$router.go(-1)" class="bck-read") Понятно
       
 </template>
-
-<style scoped>
-* {
-  font-family: "Bellota", cursive;
-  font-size: 1.3vw;
-  z-index: 99;
-}
-b {
-  font-size: 2vw;
-  color: rgb(255, 230, 0);
-}
-.panel {
-  position: fixed;
-  width: 90vw;
-  height: 45vw;
-  background-color: rgba(72, 67, 73, 0.99);
-  left: 5vw;
-  bottom: 2.5vw;
-  border: 3px solid black;
-  border-radius: 20px;
-}
-.info {
-  position: absolute;
-  width: 90%;
-  height: 40vw;
-  top: 2.5vw;
-  left: 5vw;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-}
-.col1 {
-  width: 50%;
-  margin-right: 3%;
-  font-size: 1.4vw;
-}
-.col2 {
-  width: 50%;
-  margin-left: 3%;
-}
-
-.bck {
-  color: white;
-  text-decoration: none;
-  position: absolute;
-  bottom: 2.5vw;
-  left: 40vw;
-  width: 10vw;
-  text-align: center;
-  background-color: #222;
-  border-radius: 20px;
-  border: 1px solid white;
-}
-.bck:hover {
-  background-color: white;
-  color: #222;
-  cursor: pointer;
-}
-</style>
+<script>
+import "@/styles/read.css";
+export default {};
+</script>

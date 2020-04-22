@@ -92,7 +92,7 @@ export default {
 	getters: {
 		loadedImages(state) {
 			return state.loadedImages.sort((imageA, imageB) => {
-				return imageA.date > imageB.date
+				return imageA.date - imageB.date
 			})
 		},
 		featuredImages(state, getters) {

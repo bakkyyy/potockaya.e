@@ -64,8 +64,6 @@ export default {
           getters.user.id
         )
         const feedback = await firebase.database().ref('feedbacks').push(newFeedback)
-        // console.log(feedback)
-        //logic
         commit('newFeedback', {
           ...newFeedback,
           id: feedback.key
@@ -79,21 +77,19 @@ export default {
     }
   },
   getters: {
-    // Get All user feedbacks
     feedbacks(state) {
       return state.feedbacks
     },
-    // Get user Completed feedbacks
-    feedbackCompleted(state) {
+    myfeedback(state, getters) {
       return state.feedbacks.filter(feedback => {
-        return feedback.completed
+        return feedback.user === getters.user.id
       })
     },
-    // Get user Active feedbacks
-    feedbackNotCompleted(state) {
-      return state.feedbacks.filter(feedback => {
-        return feedback.completed === false
-      })
-    }
+    feedbacksup(state) {
+      return state.feedbacks.slice().sort((a, b) => b.mack - a.mack)
+    },
+    feedbacksdown(state) {
+      return state.feedbacks.slice().sort((a, b) => a.mack - b.mack)
+    },
   }
 }

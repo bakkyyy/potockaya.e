@@ -44,6 +44,9 @@ const routes = [{
     components: {
       default: AddImage
     },
+    beforeEnter(to, from, next) {
+      store.getters.mainUser ? next() : next('/login')
+    },
     props: true
   },
   {
@@ -60,11 +63,7 @@ const routes = [{
   {
     path: '/',
     name: 'Main',
-    component: Main,
-    // Если не зареган, то можно отправить его регаться
-    // beforeEnter(to, from, next) {
-    //   store.getters.checkUser ? next() : next('/login')
-    // }
+    component: Main
   }
 ]
 

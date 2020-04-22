@@ -1,0 +1,125 @@
+* {
+	font-family: "Bellota", cursive;
+}
+
+.main-add {
+	width: 100%;
+	height: 40vw;
+	top: 5vw;
+	position: relative;
+}
+
+.categories-add {
+	border-radius: 20px;
+	width: 20vw;
+	display: inline-block;
+	position: absolute;
+	right: 3vw;
+	top: 10%;
+	background-color: #f0f0f0;
+}
+
+.category-add {
+	margin-bottom: 8%;
+	margin-top: 8%;
+	margin-left: 8%;
+}
+
+.info-add {
+	width: 30vw;
+	height: 35vw;
+	margin-left: 1%;
+	margin-top: 1%;
+	background-color: #f0f0f0;
+	border-radius: 20px;
+	position: absolute;
+}
+
+.example-image-add {
+	width: 100%;
+	height: 90%;
+}
+
+.preview-photo-add {
+	position: relative;
+	padding: 2%;
+	border-radius: 20px;
+	width: 25vw;
+	height: 17vw;
+	background-color: #f0f0f0;
+	margin: 0 auto;
+}
+
+.text-photo-add {
+	text-align: center;
+	font-size: 1.2vw;
+	font-weight: 500;
+}
+
+.button-panel-add {
+	position: relative;
+	margin: 0 auto;
+	width: 30vw;
+	top: 15vw;
+	display: flex;
+	justify-content: space-between;
+}
+
+.button-add {
+	background-color: white;
+	font-size: 1.2vw;
+	padding: 0;
+	border: none;
+	border-radius: 20px;
+}
+
+.button-add:hover {
+	background-color: #484349;
+	color: white;
+	cursor: pointer;
+}
+
+.upload-add {
+	width: 30%;
+}
+
+.selected-add {
+	width: 35%;
+}
+
+.img-add {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.main_instruction-add {
+	text-align: center;
+	font-weight: 900;
+	color: rgb(255, 230, 0);
+	text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
+}
+
+.preferably-add {
+	margin-top: 10%;
+	margin-left: 3%;
+}
+
+.p-add {
+	font-weight: 600;
+}
+
+.status-add {
+	width: 15vw;
+	height: 1.5vw;
+	font-size: 1.3vw;
+	text-align: center;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 8%;
+}
+
+.error {
+	border-color: red;
+	border: 1px solid red;
+}

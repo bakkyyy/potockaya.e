@@ -1,7 +1,7 @@
 <template lang="pug">
 	.main
-		.title Тут делают красивые фотографии
-		.container
+		.title-main Тут делают красивые фотографии
+		.container-main
 			Categories(v-for="(catalog,index) in catalogs" :key="catalog.id" v-bind:ctlg="catalog" v-bind:photoid="catalogs[index].id" @click.native="scrollToGallery")
 		<router-view></router-view>
 </template>
@@ -9,6 +9,7 @@
 <script>
 import Categories from "@/views/Categories";
 import Gallery from "@/views/Gallery";
+import "@/styles/main.css";
 
 export default {
   name: "Main",
@@ -84,29 +85,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.main {
-  height: 125vw;
-  width: 100%;
-}
-
-.title {
-  font-family: "Pacifico", cursive;
-  font-size: 2.3vw;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  top: 9%;
-}
-
-.container {
-  background-color: #f0f0f0;
-  position: relative;
-  top: 15%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-</style>
