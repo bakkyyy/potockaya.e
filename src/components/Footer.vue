@@ -2,7 +2,7 @@
     footer
      .nav-footer
         .phone-footer
-          | Потоцкая Екатерина +7 (999) 999-99-99
+          | Потоцкая Екатерина +7 (912) 304-38-69
         .empty
         .read-please.button-footer
           router-link(to="/read" class ='link-footer')
